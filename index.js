@@ -117,17 +117,31 @@ Final Score: 6 - 10 */
 
 
 function scoreboard(inning, innNum) {
-  let teamA = inning();
-  let teamB = inning();
-  finalScore = {[`Inning 1`]: `${teamA} - ${teamB}`};
-  for(let j = 2; j <= innNum; j++){
+  let teamA = 0;
+  let teamB = 0;
+  for(let j = 1; j <= innNum; j++){
     teamA += inning();
     teamB += inning();
-    finalScore[`Inning ${j}`] = `${teamA} - ${teamB}`;
+    console.log(`Inning ${j}: ${teamA} - ${teamB}`);
   }
-  finalScore[`Final Score`] = `${teamA} - ${teamB}`;
-  return finalScore;
-
+  console.log(`Final Score: ${teamA} - ${teamB}`);
 }
 
 console.log(scoreboard(inning, 9));
+
+
+// function scoreboard(inning, innNum) {
+//   let teamA = inning();
+//   let teamB = inning();
+//   finalScore = {[`Inning 1`]: `${teamA} - ${teamB}`};
+//   for(let j = 0; j <= innNum; j++){
+//     teamA += inning();
+//     teamB += inning();
+//     finalScore[`Inning ${j}`] = `${teamA} - ${teamB}`;
+//   }
+//   finalScore[`Final Score`] = `${teamA} - ${teamB}`;
+
+
+// }
+
+// console.log(scoreboard(inning, 9));
