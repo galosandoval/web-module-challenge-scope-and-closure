@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter 1 a bit more clean, keeping variables locally in the function counterMaker. The second one, although less text, the variable lives in the global scope, which could complicate things down the line.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * the first counter uses a closure. It uses a function within a function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * the first scenario would be preferable if you making a webite and want it to be used several times throughout the experience. the second one isnt as good for scaling.
  *
 */
 
@@ -56,11 +62,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(score){
+  score = Math.floor(Math.random() * 4);
+  return score;
 }
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +82,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, num){
+  let total = {Home: 0, Away: 0};
+  for(let i = 0; i < num; i++){
+    total.Home += inning();
+    total.Away += inning();
+    }
+  return total;
 }
+
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +114,20 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+
+function scoreboard(inning, innNum) {
+  let teamA = inning();
+  let teamB = inning();
+  finalScore = {[`Inning 1`]: `${teamA} - ${teamB}`};
+  for(let j = 2; j <= innNum; j++){
+    teamA += inning();
+    teamB += inning();
+    finalScore[`Inning ${j}`] = `${teamA} - ${teamB}`;
+  }
+  finalScore[`Final Score`] = `${teamA} - ${teamB}`;
+  return finalScore;
+
 }
 
-
+console.log(scoreboard(inning, 9));
