@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+ A closure gives an inner function access to an outer functions scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+the closures are the const dansRoll and zoesRoll. They both sure the same function body, but their data is different.
+
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? 
+
+dansRoll wil always invoke the function personalDice which will return a string with Dan's name but the number will be random.
+
 c. What is the lexical scope of `newRoll`? 
+
+the lexical scope of newRoll is inside the function personalDice
 
 ### Task 2c - Exit Ticket
 
